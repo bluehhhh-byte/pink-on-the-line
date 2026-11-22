@@ -29,11 +29,7 @@
   const DECK_AUTOHIDE_MS = 5200;
 
   const CREDITS_CHAPTER_ID = 99;
-  const AFTERWORD_PARAS = [
-  "누군가의 말이 거칠어질 때 우리는 목소리부터 듣는다. 그 말이 나오기 전 삼켜진 문장은 보지 못한다.",
-  "민서의 핑크는 다른 사람이 되는 가면이 아니었다. 도윤에게는 그 목소리가 괴수를 쓰러뜨리는 영웅처럼 들렸지만, 전화기 너머에는 끝내 자기 말을 하고 싶은 사람이 있었다.",
-  "두 사람은 이제 장난과 진심을 구분해 말한다. 한 사람이 져주기로 한 날에도 자신의 뜻을 먼저 꺼낸다. 그게 둘이 새로 정한 대결의 규칙이다."
-];
+  const AFTERWORD_PARAS = window.NOVEL_DATA.afterword || [];
   const AFTERWORD_SIGNATURE = '';
   const INSPIRATIONS = [
     {"kind": "드라마", "by": "MBC", "title": "지금 거신 전화는", "year": 2024, "url": "https://www.youtube.com/results?search_query=MBC%20%EC%A7%80%EA%B8%88%20%EA%B1%B0%EC%8B%A0%20%EC%A0%84%ED%99%94%EB%8A%94"},

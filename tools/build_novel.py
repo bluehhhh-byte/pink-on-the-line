@@ -28,17 +28,19 @@ for index, chapter_text in enumerate(chapter_texts, start=1):
 
 novel = "\n\n".join(chapter_texts) + "\n"
 (ROOT / "novel.md").write_text(novel, encoding="utf-8")
+epilogue = (ROOT / "epilogue.md").read_text(encoding="utf-8").strip()
+afterword = [line.strip() for line in epilogue.splitlines()[1:] if line.strip()]
 data = {
     "title": TITLE,
     "chapterCount": len(chapters),
     "totalParagraphs": sum(len(chapter["paragraphs"]) for chapter in chapters),
     "chapters": chapters,
+    "afterword": afterword,
 }
 (ROOT / "novel-data.js").write_text(
     "window.NOVEL_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";",
     encoding="utf-8",
 )
-epilogue = (ROOT / "epilogue.md").read_text(encoding="utf-8").strip()
 (ROOT / f"{TITLE}.md").write_text(
     f"# {TITLE}\n\n### {SUBTITLE}\n\n{novel}\n{epilogue}\n",
     encoding="utf-8",
